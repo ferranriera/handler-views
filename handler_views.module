@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Views condition is a simple module that allows
+ * you to define conditionals (if xxx then yyy) with
+ * fields in views.  Conditions include:
+ *   - Equal to
+ *   - NOT equal to
+ *   - Great than
+ *   - Less than
+ *   - Empty
+ *   - NOT empty
+ *   - Contains
+ *   - Does NOT Contain
+ *
+ * Views conditionals allows you to output text
+ * based on the result of the condition.
+ *
+ * @author MChittenden
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function fetal_custom_ctools_views_views_api() {
+  return array(
+    'api' => '3',
+    'path' => drupal_get_path('module', 'fetal_custom_ctools_views') . '/includes/views',
+  );
+}
+
+/**
+ * Implements hook_theme();
+ */
+function fetal_custom_ctools_views_theme($existing, $type, $theme, $path) {
+  $themes = [
+      'home_cursos_enlace' => [
+        'template' => 'home-cursos-enlace'
+      ],
+      'terms' => [
+        'template' => 'terms'
+      ],
+      'banners' => [
+        'template' => 'banners'
+      ],
+      'postgrado' => [
+        'template' => 'postgrado'
+      ]
+
+  ];
+  return $themes;
+}
